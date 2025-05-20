@@ -84,5 +84,3 @@ Contributions are welcome! Please follow these steps:
 ## License
 This project is licensed under the MIT License.
 
-## Contact
-For support or inquiries, please contact the development team at support@example.com.
