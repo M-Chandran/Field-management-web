@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    /* Updated primary color to teal */
+    --primary: 175 70% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Updated secondary color to a complementary color */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Updated muted color */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Updated accent color */
+    --accent: 175 70% 97%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 175 70% 41%;
+
+    /* Added success color */
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+
+    /* Added warning color */
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Added info color */
+    --info: 217 91% 60%;
+    --info-foreground: 210 40% 98%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Updated dark mode primary */
+    --primary: 175 70% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Updated dark mode secondary */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Updated dark mode muted */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Updated dark mode accent */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Updated dark mode ring */
+    --ring: 175 70% 41%;
+
+    /* Added dark mode success */
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+
+    /* Added dark mode warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Added dark mode info */
+    --info: 217 91% 60%;
+    --info-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the image capture component */
+.camera-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.camera-feed {
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Map marker styles */
+.map-marker {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50% 50% 50% 0;
+  background-color: hsl(var(--primary));
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -1rem 0 0 -1rem;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.map-marker:after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin: 0.5rem 0 0 0.5rem;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) translate(0, -10px);
+  }
+}
+
+/* Role badge styles */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.role-badge.admin {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.role-badge.supervisor {
+  background-color: hsl(var(--info));
+  color: hsl(var(--info-foreground));
+}
+
+.role-badge.worker {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.role-badge.guest {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+/* Sidebar hover effects */
+@layer components {
+  .sidebar-nav-item {
+    @apply relative flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200;
+  }
+
+  .sidebar-nav-item::before {
+    content: "";
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary scale-y-0 transition-transform duration-200;
+  }
+
+  .sidebar-nav-item:hover::before {
+    @apply scale-y-100;
+  }
+
+  .sidebar-nav-item.active::before {
+    @apply scale-y-100;
+  }
+
+  .sidebar-icon-container {
+    @apply relative flex h-10 w-10 items-center justify-center rounded-full overflow-hidden;
+  }
+
+  .sidebar-icon-container::after {
+    content: "";
+    @apply absolute inset-0 bg-primary opacity-0 transition-opacity duration-200;
+  }
+
+  .sidebar-nav-item:hover .sidebar-icon-container::after {
+    @apply opacity-10;
+  }
+}
