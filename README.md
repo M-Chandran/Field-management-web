@@ -32,7 +32,7 @@ Field Management System is a comprehensive, scalable web application designed to
 ### Setup Steps
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/M-Chandran/Field-management-web.git
    cd field-management-system
    ```
 2. Install dependencies:
